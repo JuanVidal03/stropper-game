@@ -6,7 +6,6 @@ const GlobalContextProvider = ({children}) => {
 
     const [dificultad, setDificultad] = useState("normal");
 
-
     return (
         <GlobalContext.Provider value={{
             dificultad,

@@ -1,18 +1,23 @@
-import PropTypes from 'prop-types';
+import {  useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const targetNavegation = [
-    { title: 'Play' },
-    { title: 'Opciones' },
-    { title: 'Puntuacion' }
+    { title: 'Play', path: '/play' },
+    { title: 'Opciones', path: '/options' },
+    { title: 'Puntuacion'}
   ];
+  const navigate =useNavigate();
 
   return (
     <div className="card">
       <h2>Opciones de Navegación</h2>
       <ul className="navigation-list">
         {targetNavegation.map((item, index) => (
-          <li key={index} className="navigation-item">
+          <li
+            key={index}
+            className="navigation-item"
+            onClick={() => navigate(item.path)}
+          >
             {item.title}
           </li>
         ))}
@@ -20,9 +25,4 @@ const Home = () => {
     </div>
   );
 };
-
-Home.propTypes = {
-  opciones: PropTypes.array // Define el tipo de `opciones`, puedes ajustar esto según lo que necesites
-};
-
 export default Home;
