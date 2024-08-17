@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useContext } from "react";
 
 import Home from "./pages/Home.jsx";
 import HighestScores from "./pages/HighestScores.jsx";

@@ -1,39 +1,35 @@
-import { useContext, useState } from "react";
-import Layout from "../layout/Layout.jsx";
-import { useNavigate } from "react-router-dom";
+import { useContext } from 'react';
 
-import { GlobalContext } from "../context/GlobalContext.jsx"
-
+import { GlobalContext } from '../context/GlobalContext.jsx';
+import { redirect, useNavigate } from 'react-router-dom';
 
 const Options = () => {
 
-    const { setDificultad, dificultad } = useContext(GlobalContext);
-    const [difficulty, setDifficulty] = useState(dificultad);
+    const { dificultad, setDificultad } = useContext(GlobalContext);
 
+    console.log(dificultad);
 
     const navigate = useNavigate();
-    const redirectHome = () =>  navigate("/");
-    const changeDifficulty = () => setDificultad(difficulty);
+
+    const redirectHome = () => navigate("/");
 
     return (
-        <Layout>
-            <div className="p-12">
-                <h2 className="font-bold text-lg text-center">Selecciona el nivel de dificultad</h2>
-                <div>
-                    <select onChange={(e) => setDifficulty(e.target.value)} name="" id="">
-                        <option value="normal">Normal</option>
-                        <option value="legendario">Legendario</option>
-                        <option value="nivel dios">Nivel Dios</option>
-                    </select>
-
-                    <div>
-                        <button onClick={changeDifficulty}>Confirmar</button>
-                        <button onClick={redirectHome}>Cancelar</button>
-                    </div>
-
-                </div>
+        <div>
+            <h1>Selecciona la dificultad</h1>
+            <div>
+                <select onChange={(e) => setDificultad(e.target.value)}>
+                    <option value="">Elije una opcion</option>
+                    <option value="normal">Normal</option>
+                    <option value="legendario">Legendario</option>
+                    <option value="nivel dios">Nivel Dios</option>
+                </select>
             </div>
-        </Layout>
+
+            <div>
+                <button className='py-2 px-4 bg-green-500' onClick={redirectHome}>Confirmar</button>
+                <button className='py-2 px-4 bg-red-500' onClick={redirectHome}>Cancelar</button>
+            </div>
+        </div>
     );
 }
 
