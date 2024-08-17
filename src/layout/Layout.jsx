@@ -1,5 +1,6 @@
 
 
+// eslint-disable-next-line react/prop-types
 const Layout = ({children}) => {
     return (
         <div className="W-full h-screen flex justify-center items-center">
