@@ -7,8 +7,6 @@ const Options = () => {
 
     const { dificultad, setDificultad } = useContext(GlobalContext);
 
-    console.log(dificultad);
-
     const navigate = useNavigate();
 
     const redirectHome = () => navigate("/");
@@ -24,7 +22,7 @@ const Options = () => {
                     <option value="nivel dios">Nivel Dios</option>
                 </select>
             </div>
-
+            
             <div>
                 <button className='py-2 px-4 bg-green-500' onClick={redirectHome}>Confirmar</button>
                 <button className='py-2 px-4 bg-red-500' onClick={redirectHome}>Cancelar</button>
